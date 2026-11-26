@@ -252,19 +252,18 @@
   .news-form button:hover{background:var(--coral-dark);color:#fff}
 
   /* ---------- Footer ---------- */
-  footer.site{padding:56px 0 0;background:#FFF6E3}
-  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:34px;padding-bottom:44px}
-  footer.site h4{color:var(--navy);font-size:16.5px;margin-bottom:16px}
-  footer.site li{list-style:none;margin-bottom:10px}
-  footer.site li a,footer.site li span{color:var(--grey);font-size:14px;display:inline-flex;min-height:32px;align-items:center}
-  footer.site li a:hover{color:var(--green)}
-  .foot-contact p{color:var(--grey);font-size:14px;margin-top:14px}
-  .foot-contact .call{color:var(--navy);font-size:21px;font-weight:700}
-  .foot-contact .call a:hover{color:var(--green)}
-  .mapbtn{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:var(--navy);font-weight:600;font-size:13.5px;padding:0 20px;min-height:42px;margin-top:18px}
-  .mapbtn svg{width:15px;height:15px}
-  .copy{border-top:1px solid var(--border-soft);padding:18px 0;color:var(--grey);font-size:13.5px;background:#FDF1DC}
-  .copy .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  footer.site{padding:44px 0 0;background:#FFF6E3}
+  .foot-simple{max-width:520px;margin:0 auto;padding-bottom:36px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .foot-simple .tagline{color:var(--grey);font-size:14px}
+  .foot-simple .addr{color:var(--grey);font-size:14px}
+  .foot-simple .contact-line{color:var(--grey);font-size:14px}
+  .foot-simple .contact-line a{color:var(--navy);font-weight:600}
+  .foot-simple .contact-line a:hover{color:var(--green)}
+  .foot-links{display:flex;gap:8px 22px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+  .foot-links a{color:var(--navy);font-size:14px;font-weight:500;display:inline-flex;align-items:center;min-height:36px}
+  .foot-links a:hover{color:var(--green)}
+  .copy{border-top:1px solid var(--border-soft);padding:18px 0;color:var(--grey);font-size:13.5px;background:#FDF1DC;text-align:center}
+  .copy .wrap{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center}
 
   /* ---------- Floating / cart drawer ---------- */
   .fab{position:fixed;right:18px;bottom:18px;z-index:80;display:flex;flex-direction:column;gap:10px}
@@ -275,7 +274,8 @@
   .fab .count{position:absolute;top:-3px;right:-3px;background:var(--coral);color:var(--navy);font-size:11px;font-weight:700;min-width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center}
   .overlay{position:fixed;inset:0;background:rgba(46,10,30,.45);z-index:90;opacity:0;pointer-events:none;transition:opacity .2s}
   .overlay.show{opacity:1;pointer-events:auto}
-  .drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,100vw);background:#fff;z-index:95;transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column}
+  .drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,100vw);background:#fff;z-index:95;transform:translateX(105%);transition:transform .25s ease;display:none;flex-direction:column}
+  .drawer.mounted{display:flex}
   .drawer.show{transform:translateX(0)}
   .drawer header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--border)}
   .drawer header h3{font-size:19px}
@@ -355,7 +355,6 @@
     .service-strip{grid-template-columns:repeat(3,1fr)}
     .service{border-bottom:1px solid var(--border)}
     .campus-grid{grid-template-columns:repeat(3,1fr)}
-    .foot-grid{grid-template-columns:1fr 1fr}
     .stats .wrap{grid-template-columns:repeat(2,1fr)}
   }
   @media (max-width:760px){
@@ -407,11 +406,62 @@
     .service-strip{grid-template-columns:repeat(2,1fr)}
     .topbar span{border-right:none;margin-right:8px;padding-right:0}
     .topbar .hide-m{display:none}
+
+    /* ----- Mobile: everything centred ----- */
+    body{text-align:center}
+    .topbar .wrap{justify-content:center;text-align:center}
+    .topbar .right{margin-left:0;justify-content:center;width:100%}
+    .head-main{justify-content:center;text-align:center}
+    .logo{flex-basis:100%;text-align:center}
+    .logo .name,.logo .sub{text-align:center}
+    .head-icons{margin-left:0;justify-content:center;width:100%}
+    nav.mainnav a{justify-content:center;text-align:center}
+    nav.mainnav a::after{display:none}
+    .hero .wrap{justify-content:center}
+    .hero-content{text-align:center;margin:0 auto}
+    .hero p.lede{margin-left:auto;margin-right:auto}
+    .hero .cta-row{justify-content:center}
+    .hero .ticks{justify-content:center}
+    .hero .ticks li{justify-content:center;text-align:center}
+    .sec-head{flex-direction:column;align-items:center;text-align:center;justify-content:center}
+    .sec-head>div{margin:0 auto}
+    .sec-head p{margin-left:auto;margin-right:auto}
+    .tabs{justify-content:center}
+    .card .body{text-align:center;align-items:center}
+    .card .desc{text-align:center}
+    .card .actions{justify-content:center;width:100%}
+    .service{text-align:center}
+    .service b,.service span{text-align:center}
+    .stats .wrap{text-align:center}
+    .stat{text-align:center}
+    .promo{grid-template-columns:1fr}
+    .promo .p-txt{text-align:center}
+    .promo .p-txt .btn{margin-left:auto;margin-right:auto}
+    .benefit{flex-direction:column;align-items:center;text-align:center}
+    .benefit p{text-align:center}
+    .split{text-align:center}
+    .split>div>div[style]{justify-content:center !important}
+    .body-copy{text-align:center}
+    .body-copy p{text-align:center}
+    .mission{text-align:center}
+    .step{text-align:center}
+    .step .go{display:block;text-align:center}
+    .campus{text-align:center}
+    .newsletter{text-align:center}
+    .newsletter h2,.newsletter p{text-align:center}
+    .news-form{flex-direction:column;gap:8px;padding:8px;align-items:stretch}
+    .news-form input{text-align:center}
+    .news-form button{width:100%}
+    .bonus .txt{text-align:center}
+    .bonus .txt .btn{margin-left:auto;margin-right:auto}
+    section p[style]{text-align:center}
+    .drawer,.drawer header,.drawer footer{text-align:left}
+    .drawer .note{text-align:center}
+    .campus-pills{justify-content:center}
   }
   @media (max-width:430px){
     .cat-grid{grid-template-columns:repeat(2,1fr)}
     .mini-grid{grid-template-columns:repeat(2,1fr)}
-    .foot-grid{grid-template-columns:1fr}
     .hero .badge{font-size:8.2px;letter-spacing:.45px;padding:6px 8px}
   }
   @media (prefers-reduced-motion:reduce){
@@ -719,46 +769,21 @@
 <!-- ======= FOOTER ======= -->
 <footer class="site" id="visit">
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-contact">
-        <a class="logo" href="#top"><div class="name" style="font-size:27px;font-weight:800;color:var(--navy)">THEODORA<i style="font-style:normal;color:var(--green)">.</i></div><div class="sub" style="font-size:10px;font-weight:600;letter-spacing:3.5px;color:var(--coral);margin-top:3px">PREMIUM MART</div></a>
-        <p>Got Question? Call us</p>
-        <div class="call"><a href="tel:+2349053295826">0905 329 5826</a></div>
-        <p>Also on <a href="tel:+2348132457824" style="color:var(--navy);font-weight:600">0813 245 7824</a><br />South Gate, FUTA, Akure, Nigeria<br />Email: <a href="mailto:oluwaferanmiroseline04@gmail.com" style="color:var(--navy)">oluwaferanmiroseline04@gmail.com</a><br />Instagram: @Theo.Dora3245</p>
-        <a class="mapbtn" href="https://www.google.com/maps/search/FUTA+South+Gate+Akure" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6.5-5.3-6.5-10.3A6.5 6.5 0 0 1 12 4a6.5 6.5 0 0 1 6.5 6.7C18.5 15.7 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.3"/></svg> View On Map</a>
-      </div>
-      <div>
-        <h4>Ordering With Us</h4>
-        <ul>
-          <li><span>Prices confirmed on WhatsApp before you pay</span></li>
-          <li><span>Bulk packs for rooms &amp; hostels</span></li>
-          <li><span>Delivery to 5 campuses</span></li>
-          <li><span>Visit us at South Gate, FUTA</span></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#about">About THEODORA</a></li>
-          <li><a href="#shop">Shop All 35 Items</a></li>
-          <li><a href="#bulk">Bulk for Students</a></li>
-          <li><a href="#how">How to Order</a></li>
-          <li><a href="https://wa.me/2348132457824" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Our Campuses</h4>
-        <ul>
-          <li><span>FUTA — South Gate, Akure</span></li>
-          <li><span>OAU</span></li>
-          <li><span>UI</span></li>
-          <li><span>UNILAG</span></li>
-          <li><span>EKITI</span></li>
-        </ul>
-      </div>
+    <div class="foot-simple">
+      <a class="logo" href="#top"><div class="name" style="font-size:27px;font-weight:800;color:var(--navy)">THEODORA<i style="font-style:normal;color:var(--green)">.</i></div><div class="sub" style="font-size:10px;font-weight:600;letter-spacing:3.5px;color:var(--coral);margin-top:3px">PREMIUM MART</div></a>
+      <p class="tagline">We understand student life. Your one stop mart for foodstuffs, snacks and everyday essentials.</p>
+      <p class="addr">South Gate, FUTA, Akure, Nigeria</p>
+      <p class="contact-line">Call <a href="tel:+2349053295826">0905 329 5826</a> &nbsp;·&nbsp; <a href="https://wa.me/2348132457824" target="_blank" rel="noopener">Order on WhatsApp</a></p>
+      <p class="contact-line"><a href="mailto:oluwaferanmiroseline04@gmail.com">oluwaferanmiroseline04@gmail.com</a></p>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#shop">Shop</a>
+        <a href="#bulk">Bulk for Students</a>
+        <a href="#how">How to Order</a>
+        <a href="#about">About</a>
+      </nav>
     </div>
   </div>
-  <div class="copy"><div class="wrap"><span>THEODORA Premium Mart — We Understand Student Life. Your One Stop Mart.</span><span>FUTA South Gate, Akure</span></div></div>
+  <div class="copy"><div class="wrap"><span>© THEODORA Premium Mart — FUTA South Gate, Akure</span></div></div>
 </footer>
 
 <!-- ======= FLOATING BUTTONS ======= -->
@@ -863,7 +888,7 @@ function actionHTML(p){
 
 function cardHTML(p, i){
   var seen = !!seenCards[p.id];
-  return '<article class="card reveal'+(seen?' in':'')+'" data-card="'+p.id+'"'+(seen?'':' style="transition-delay:'+(Math.min(i||0,7)*60)+'ms"')+'>'
+  return '<article class="card" data-card="'+p.id+'">'
     + '<div class="imgbox">' + (p.tag ? '<span class="tag">'+p.tag+'</span>' : '')
     + '<button class="heart'+(wishlist[p.id]?' on':'')+'" data-wish="'+p.id+'" aria-label="Save '+p.name+' to wishlist">'+heartSVG+'</button>'
     + '<img src="'+p.img+'" alt="'+p.alt+'" loading="lazy" /></div>'
@@ -960,8 +985,23 @@ function renderCartItems(){
   }).join("");
 }
 
-function openDrawer(){ document.getElementById("drawer").classList.add("show"); document.getElementById("overlay").classList.add("show"); renderCartItems(); }
-function closeDrawer(){ document.getElementById("drawer").classList.remove("show"); document.getElementById("overlay").classList.remove("show"); }
+var drawerHideTimer = null;
+function openDrawer(){
+  var d = document.getElementById("drawer");
+  clearTimeout(drawerHideTimer);
+  d.classList.add("mounted");
+  void d.offsetWidth;
+  d.classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+  renderCartItems();
+}
+function closeDrawer(){
+  var d = document.getElementById("drawer");
+  d.classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+  clearTimeout(drawerHideTimer);
+  drawerHideTimer = setTimeout(function(){ d.classList.remove("mounted"); }, 280);
+}
 
 function setCampus(c){
   campus = (campus === c) ? "" : c;
@@ -1159,7 +1199,7 @@ function watchReveals(scope){
   });
 }
 /* Static blocks that fade and rise as they arrive */
-document.querySelectorAll(".sec-head, .cat-grid, .service-strip, .bonus-in, .duo, .stats .wrap, .steps, .campus-grid, .split, .newsletter .wrap, .foot-grid").forEach(function(el){
+document.querySelectorAll(".service-strip, .stats .wrap").forEach(function(el){
   el.classList.add("reveal");
 });
 watchReveals(document);
