@@ -101,7 +101,7 @@
   .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(46,10,30,.94) 0%,rgba(46,10,30,.88) 44%,rgba(126,0,79,.66) 74%,rgba(46,10,30,.52) 100%),linear-gradient(180deg,rgba(46,10,30,.14) 0%,rgba(46,10,30,.30) 100%)}
   .hero .wrap{position:relative;z-index:1;display:flex;align-items:center;min-height:580px;padding-top:78px;padding-bottom:78px}
   .hero-content{max-width:680px}
-  .hero .badge{display:inline-block;background:#FFF6E3;border:1px solid rgba(255,246,227,.9);color:var(--green-dark);font-size:12px;font-weight:700;letter-spacing:1.6px;padding:7px 14px;margin-bottom:18px;box-shadow:0 8px 24px rgba(46,10,30,.22)}
+  .hero .badge{display:inline-block;background:#FFF6E3;border:1px solid rgba(255,246,227,.9);color:var(--green-dark);font-size:12px;font-weight:700;letter-spacing:1.6px;padding:7px 14px;margin-bottom:18px;box-shadow:0 8px 24px rgba(46,10,30,.22);white-space:nowrap;max-width:100%}
   .hero h1{font-size:54px;font-weight:800;letter-spacing:-.6px;color:#fff;text-shadow:0 2px 18px rgba(46,10,30,.35)}
   .hero h1 em{font-style:normal;color:#F0C94A}
   .hero p.lede{color:rgba(255,255,255,.94);font-size:17px;line-height:1.65;margin:18px 0 24px;max-width:580px;text-shadow:0 1px 10px rgba(46,10,30,.35)}
@@ -365,7 +365,7 @@
     .hero-content{max-width:100%}
     .hero h1{font-size:34px}
     .hero p.lede{font-size:16px}
-    .hero .badge{font-size:11px;letter-spacing:1.2px;line-height:1.5}
+    .hero .badge{font-size:clamp(8.5px,2.6vw,11px);letter-spacing:.7px;line-height:1.2;padding:7px 10px;white-space:nowrap}
     .head-main{gap:14px;padding:14px 0 10px}
     .logo .name{font-size:25px}
     .searchbar{order:3;flex-basis:100%}
@@ -412,6 +412,7 @@
     .cat-grid{grid-template-columns:repeat(2,1fr)}
     .mini-grid{grid-template-columns:repeat(2,1fr)}
     .foot-grid{grid-template-columns:1fr}
+    .hero .badge{font-size:8.2px;letter-spacing:.45px;padding:6px 8px}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -868,7 +869,7 @@ function cardHTML(p, i){
     + '<img src="'+p.img+'" alt="'+p.alt+'" loading="lazy" /></div>'
     + '<div class="body"><div class="cat">'+CATLABEL[p.cat]+'</div><h3>'+p.name+'</h3>'
     + '<p class="desc">'+p.desc+'</p>'
-    + '<div class="price"><b>Price confirmed on WhatsApp</b></div>'
+
     + '<div class="actions">'+actionHTML(p)+'</div></div></article>';
 }
 
@@ -953,7 +954,7 @@ function renderCartItems(){
   }
   box.innerHTML = ids.map(function(id){
     var p = byId(id);
-    return '<div class="citem"><img src="'+p.img+'" alt="'+p.alt+'" /><div class="info"><b>'+p.name+'</b><span>'+CATLABEL[p.cat]+' · Price confirmed on WhatsApp</span></div>'
+    return '<div class="citem"><img src="'+p.img+'" alt="'+p.alt+'" /><div class="info"><b>'+p.name+'</b><span>'+CATLABEL[p.cat]+'</span></div>'
       + '<div class="mini-step"><button data-cdec="'+id+'" aria-label="Reduce">−</button><span class="q">'+cart[id]+'</span><button data-cinc="'+id+'" aria-label="Increase">+</button></div>'
       + '<button class="rm" data-rm="'+id+'">Remove</button></div>';
   }).join("");
